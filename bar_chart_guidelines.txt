@@ -1,0 +1,48 @@
+## 1. Bar Chart Formatting
+
+### 1.1 Bar outline.
+Each bar should have a black outline.
+
+### 1.2 Bar fill colors.
+When there is just one variable, use the single color "cornsilk3".
+When creating bar charts with multiple variables (e.g., categories or groups), 
+use multiple colors with these rules:
+
+- Use "cornsilk3" as the fill color for the bars of the first variable (i.e., single category).
+- Use "darkgoldenrod2" as the fill color for the bars of the second variable (if applicable).
+- Use "lightsalmon2" as the fill color for the bars of the third variable (if applicable), .
+- When more than three variables being plotted, continue with a logical color progression that maintains readability and aesthetic appeal.
+
+### 1.3 Panel background color.
+The panel background should be darkslategray2.
+
+### 1.4 Axis labels and scale values.
+The axis labels and scale values should be black.
+The axis text and axis title should be size=12.
+
+### 1.5 Grid lines.
+Use y-axis grid lines and tick marks.
+Do not use x-axis grid lines.
+Use x-axis tick marks.
+
+### 1.6 Start and end of the y axis.
+Unless there are negative y values, the y axis should start at zero.
+There should be a small extension of the y axis at the top of the chart so the tallest bar does not hit the top.
+
+### 1.7 Source information.
+Identifying the data used in the chart should come from a source statement. 
+If a source is not provided, use the term "dummy" as the source. Here is an example.
+```r
+source <- "dummy"
+```
+Put the source data into the chart with the "labs(caption = source)" code.
+
+### 1.8 Box plot outliers.
+Don't show outlier points in any special way. Here is an example of the code to use:
+```r
+geom_boxplot(outlier.shape = NA)
+```
+
+### 1.9 Box plot data points.
+Make the data points red.
+Make the data points size 3.

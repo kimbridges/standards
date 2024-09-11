@@ -1,0 +1,35 @@
+## 1. Data Input
+
+### 1.1 R chunk initialization.
+Initialize the R script by suppressing messages using this code:
+```r
+#| error: false
+#| warning: false
+```
+### 1.2 The introductory code chunk should always include this code:
+```r
+## Set read_csv function option to suppress warning messages.
+options(readr.show_col_types = FALSE)
+
+## Use the package for the read_csv function
+library(tidyverse)
+library(readr)
+```
+
+### 1.3 Create an easy to read input data table.
+Use the `read_csv` function from the readr package for inputting data.
+Here is an example.
+```r
+## Data input.
+data <- read_csv(col_names=TRUE, file=
+            "city,    lon,     lat
+             London,  0.1278,  51.5074
+             Paris,   2.3522,  48.8566")
+```
+### 1.4 Arrange the data for easy viewing.
+Make sure there are spaces between the data values so that the columns 
+are lined up.
+
+### 1.5 Save the input data as a CSV file unless otherwise specified.
+Use the write_csv function to write the data file for later use.
+

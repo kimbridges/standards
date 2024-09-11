@@ -1,0 +1,75 @@
+Creating and Formatting Tables
+
+## 1. Use the gt() function in the gt package to create tables.
+
+## 2. Variables for the table title and data source.
+Use a variable for the table title and another variable for the data source.
+If a table title our data source is provided, replace the word "default"" with information that is provided. Otherwise create a table title and data source from the problem statement.
+```r
+## Initialize the identification information.
+table_title <- "default"
+data_source <- "default"
+
+## Create the table.
+table <- gt(data) %>% 
+  tab_header(
+    title = table_title
+    ) %>% 
+  tab_source_note(
+    source_note = paste0("Source: ",data_source)
+  ) 
+```
+
+## 3. Add a date to the data_source.
+If requested, modify the data_source variable by adding the current date.
+```r
+data_source <- paste0("Source: ",default," (",Sys.Date,")")
+```
+
+## 4. Align table content at the top of the cells.
+Include the following tab_style when creating a gt() table.
+
+```r
+## Create the table.
+table <- gt(data) %>%
+  tab_style(
+    style = cell_text(v_align="top"),
+    locations = cells_body()
+    )
+```
+
+## 5. Stripe long tables.
+Use table row striping if the length of a table is more than 10 rows.
+If there is a request to stripe the rows of a table, do row striping.
+Include the following variable and addition to the gt() code if stripes are needed.
+
+```r
+## Use table stripes
+table_stripes <- true
+
+## Create the table.
+table <- gt(data) %>% 
+  opt_row_striping(row_striping = table_stripes)
+```
+## 6. Put units in the table as footnotes.
+When a table column has units, these should be added to the table 
+as a footnote and the units should not be included in the column header.
+The units in the footnote should be simple, such as "pounds", "miles/gallon", and
+"hectares".
+Do not surround the units with a statements like "Yield measured in buckets of apples harvested". Instead, give the units as "buckets" in this example.
+
+## 7. Show count data as integers.
+When values are counts, they should appear in the table as integers with no decimal values.
+
+## 8. Use standard date style formats.
+gt() tables have a special set of date and time formats. These should be used in the table formatting. 
+A common date style value in gt() is "iso".
+
+## 9. Output the table properly.
+Do NOT use print(table) for output. 
+Here is an example of how to output a table properly.
+```r
+table <- gt(data)
+table
+```
+
